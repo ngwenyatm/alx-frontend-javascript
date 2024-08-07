@@ -1,5 +1,6 @@
-function getResponseFromAPI(){
-    const promise = promise.resolve('success')
-    return promise
-}
-export default getResponseFromAPI;
+function getResponseFromAPI() {
+    return new Promise((resolve) => {
+      resolve('success');
+    });
+  }
+  export default getResponseFromAPI;
