@@ -17,7 +17,7 @@ return this._name;
 }
 set name(name) {
 if (typeof name !== 'string') {
-throw new Error('Tname must be a string');
+throw new Error('name must be a string');
 }
 this._name = name;
 }
