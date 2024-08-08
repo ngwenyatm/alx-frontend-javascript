@@ -37,9 +37,8 @@ export default class HolbertonCourse{
 
         if (typeof(length) !== 'number') {
             throw new TypeError('Length must be a number');
-          }
-      
-          this._length = length;
+        }
+        this._length = length;
 
     }
 
@@ -48,15 +47,10 @@ export default class HolbertonCourse{
 
     }
 
-    set students(){
-        if (
-            !Array.isArray(students) &&
-            !students.every(typeof students === 'string')
-          ) {
+    set students(students){
+        if (!Array.isArray(students)) {
             throw new TypeError('Students must be an array of string');
-          }
-      
-          this._students = students;
-
-    })
+        }
+        this._students = students;
+    }
 }
