@@ -1,4 +1,4 @@
-function updateStudentGradeByCity(studentData, city, newGrades) {
+export default function updateStudentGradeByCity(studentData, city, newGrades) {
   if (!Array.isArray(studentData) || !Array.isArray(newGrades)) {
     throw new Error('Invalid input: studentData and newGrades must be arrays');
   }
