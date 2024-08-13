@@ -1,18 +1,17 @@
-export default function updateStudentGradeByCity(studentData, city, newGrades) {
-  if (!Array.isArray(studentData) || !Array.isArray(newGrades)) {
-    throw new Error('Invalid input: studentData and newGrades must be arrays');
+export default function updateStudentGradeByCity(students, city, newGrades) {
+  const defaultGrade = { grade: 'N/A' };
+
+  if (students instanceof Array) {
+    return students
+      .filter((student) => student.location === city)
+      .map((student) => ({
+        id: student.id,
+        firstName: student.firstName,
+        location: student.location,
+        grade: (newGrades
+          .filter((grade) => grade.studentId === student.id)
+          .pop() || defaultGrade).grade,
+      }));
   }
-
-  if (newGrades.length === 0) {
-    return studentData.filter(student => student.location === city);
-  }
-
-  const gradeMap = new Map(newGrades.map(grade => [grade.studentId, grade]));
-
-  return studentData
-    .filter(student => student.location === city)
-    .map(student => ({
-      ...student,
-      grade: (gradeMap.get(student.id) || { grade: 'N/A' }).grade,
-    }));
+  return [];
 }
